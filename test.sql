@@ -12,8 +12,6 @@ when lower(substr(trim(n.last_name),-1,1)) in ('м','н','ң') then
 end)
 lastNameGenKz, 
 
-
-
 a.ass_attribute1 orderNumber, to_char(a.ass_attribute_date1,'DD.MM.YYYY') orderDate, a.ass_attribute2 orderAssigner, a.ass_attribute3 orderAssignerPos,
 extract(year from a.EFFECTIVE_START_DATE) hireYear, 
 extract(day from a.EFFECTIVE_START_DATE) hireDay,
@@ -49,8 +47,6 @@ end
 ) hireMonthRu, 
 to_char(a.ass_attribute_date2,'DD.MM.YYYY') as emplContDate,
 a.ass_attribute5 as emplContNumber,
-
-
 substr(n.first_name,1,1)||'.' i_fn,
 (case when n.middle_names is not null then substr(n.middle_names,1,1)||'.' else '' end) i_mn,
 a.ass_attribute4 execOrder
