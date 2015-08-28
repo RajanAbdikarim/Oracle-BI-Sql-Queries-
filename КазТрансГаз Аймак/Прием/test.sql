@@ -23,6 +23,8 @@ when 4 then 'сәуірінен'
 when 5 then 'мамырынан'
 when 6 then 'маусымынан'
 when 7 then 'шілдесінен'
+
+
 when 8 then 'тамызынан'
 when 9 then 'қыркүйегінен'
 when 10 then 'қазанынан'
