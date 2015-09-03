@@ -74,7 +74,9 @@ select
 CONCAT('JOB_',CRC32(UPPER(TRIM(ДЖ.`Наименование`)))) as JOB_ID,
 CONCAT('KTG_DEP_',CRC32(UPPER(TRIM(ПД.`Наименование`)))) as DEPARTMENT_ID,
 П.*,
-CRC32(UPPER(trim(`С`.`ФИО`))) AS `PERSON_ID` from (`kontrotenko_ktg`.`Приказы` `П` join `kontrotenko_ktg`.`Сотрудники` `С` on((`П`.`КодСотрудника` = `С`.`КодСотрудника`))) 
+CRC32(UPPER(trim(`С`.`ФИО`))) AS `PERSON_ID` 
+from kontrotenko_ktg.`Приказы` `П` 
+join kontrotenko_ktg.`Сотрудники` `С` on `П`.`КодСотрудника` = `С`.`КодСотрудника` 
 JOIN kontrotenko_ktg.`Должности` ДЖ ON П.`КодДолжности`=ДЖ.`КодДолжности`
 JOIN kontrotenko_ktg.`Подразделения` ПД ON ДЖ.`КодПодразделения`=ПД.`КодПодразделения`
 WHERE  П.ГруппаПриказа IN(1,2,3)
@@ -91,7 +93,9 @@ select
 CONCAT('JOB_',CRC32(UPPER(TRIM(ДЖ.`Наименование`)))) as JOB_ID,
 CONCAT('KTGA_DEP_',CRC32(UPPER(TRIM(ПД.`Наименование`)))) as DEPARTMENT_ID,
 П.*,
-CRC32(UPPER(trim(`С`.`ФИО`))) AS `PERSON_ID` from (`kontrotenko_ktga`.`Приказы` `П` join `kontrotenko_ktga`.`Сотрудники` `С` on((`П`.`КодСотрудника` = `С`.`КодСотрудника`)))
+CRC32(UPPER(trim(`С`.`ФИО`))) AS `PERSON_ID` 
+from kontrotenko_ktga.`Приказы` `П` 
+join kontrotenko_ktga.`Сотрудники` `С` on `П`.`КодСотрудника` = `С`.`КодСотрудника`
 JOIN kontrotenko_ktga.`Должности` ДЖ ON П.`КодДолжности`=ДЖ.`КодДолжности`
 JOIN kontrotenko_ktga.`Подразделения` ПД ON ДЖ.`КодПодразделения`=ПД.`КодПодразделения`
 WHERE  П.ГруппаПриказа IN(1,2,3)
